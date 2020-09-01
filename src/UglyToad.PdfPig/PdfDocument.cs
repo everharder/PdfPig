@@ -106,7 +106,7 @@
             this.filterProvider = filterProvider ?? throw new ArgumentNullException(nameof(filterProvider));
             this.bookmarksProvider = bookmarksProvider ?? throw new ArgumentNullException(nameof(bookmarksProvider));
             this.clipPaths = clipPaths;
-            Information = information ?? throw new ArgumentNullException(nameof(information));
+            Information = information;
             pages = new Pages(catalog, pageFactory, pdfScanner);
             Structure = new Structure(catalog, crossReferenceTable, pdfScanner);
             Advanced = new AdvancedPdfDocumentAccess(pdfScanner, filterProvider, catalog);
