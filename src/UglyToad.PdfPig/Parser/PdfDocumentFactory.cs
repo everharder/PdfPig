@@ -136,8 +136,16 @@
                 new Type3FontHandler(pdfScanner, filterProvider, encodingReader));
             
             var resourceContainer = new ResourceStore(pdfScanner, fontFactory);
+
+            DocumentInformation information = null;
+            try
+            {
+                information = DocumentInformationFactory.Create(pdfScanner, crossReferenceTable.Trailer);
+            }
+            catch
+            {
+            }
             
-            var information = DocumentInformationFactory.Create(pdfScanner, crossReferenceTable.Trailer);
 
             var catalog = CatalogFactory.Create(rootReference, rootDictionary, pdfScanner, isLenientParsing);
 
